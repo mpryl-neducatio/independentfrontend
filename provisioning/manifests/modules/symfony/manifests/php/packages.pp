@@ -42,14 +42,9 @@ package { "php5-xdebug" :
   require => Package["php5"],
   notify => Service["apache2"],
 }
-package { "php5-pgsql" :
+package { "php5-mongo" :
   ensure => installed,
-  require => Package["php5", "postgresql"],
-  notify => Service["apache2"],
-}
-package { "php5-mysql" :
-  ensure => installed,
-  require => Package["php5", "mysql-server"],
+  require => Package["php5"],
   notify => Service["apache2"],
 }
 package { "php-apc" :

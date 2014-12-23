@@ -3,5 +3,5 @@ class server {
     include workplace::workplace
     include apache::apache
     include frontend::frontend
-    include examplesite::examplesite
+#    include examplesite::examplesite
 }
