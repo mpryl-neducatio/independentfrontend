@@ -9,8 +9,8 @@ class server::apache::configured {
   exec { "set ServerName in apache":
     path   => "/usr/bin:/usr/sbin:/bin",
     notify  => Service["apache2"],  # this sets up the relationship
-    unless => "grep -q '^[ ]*ServerName ' /etc/apache2/httpd.conf",
-    command => "echo 'ServerName localhost' >> /etc/apache2/httpd.conf",
+    unless => "grep -q '^[ ]*ServerName ' /etc/apache2/apache2.conf",
+    command => "echo 'ServerName localhost' >> /etc/apache2/apache2.conf",
     require => Package["apache2"]
   }
   augeas { "set apache configuration for 000-default":

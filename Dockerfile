@@ -22,3 +22,11 @@ RUN echo -n 'vagrant:vagrant' | chpasswd
 RUN echo 'vagrant ALL=NOPASSWD: ALL' > /etc/sudoers.d/vagrant
 
 CMD /usr/sbin/sshd -D -o UseDNS=no -o UsePAM=no
+
+# Start Apache and expose port
+ENV APACHE_RUN_USER www-data
+ENV APACHE_RUN_GROUP www-data
+ENV APACHE_LOG_DIR /var/log/apache2
+EXPOSE 80
+ENTRYPOINT ["/usr/sbin/apache2"]
+CMD ["-D", "FOREGROUND"]

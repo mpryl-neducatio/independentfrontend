@@ -5,4 +5,7 @@ class server::workplace::workflow {
   package { 'git':
       ensure => present,
   }
+  package { 'nano':
+      ensure => present,
+  }
 }
